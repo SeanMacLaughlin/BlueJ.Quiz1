@@ -1,4 +1,6 @@
  
+import java.math.BigInteger;
+import java.util.Arrays;
 
 public class LoopFun
 {
@@ -9,9 +11,16 @@ public class LoopFun
        * @param number
        * @return the factorial of the number
        */
-      public Integer factorial(Integer number){
-          return null;
-      }
+      public Integer factorial(Integer number) {
+          
+          BigInteger f = new BigInteger("1");
+            for (int i = 1; i <= number; i++) {
+            f = f.multiply(BigInteger.valueOf(i));
+    }
+    int outchea = f.intValue();
+    return outchea;
+    }
+            
 
       /**
        * Given a phrase, get the acronym of that phrase. Acronym is the combination of
@@ -21,8 +30,23 @@ public class LoopFun
        * @return Upper case string of the first letter of each word
        */
       public String acronym(String phrase) {
-          return null;
-      }
+          
+        String acronym2 = "";
+        
+        acronym2 += phrase.toUpperCase().charAt(0);
+
+        for (int i = 1; i <= phrase.length() - 1; i++) {
+            if (phrase.charAt(i - 1) == ' ' || phrase.charAt(i - 1) == '-') {
+                acronym2 += phrase.toUpperCase().charAt(i);
+            }
+        }
+
+        return acronym2;
+    }
+
+ 
+  
+      
 
       /**
        * To prevent anyone from reading our messages, we can encrypt it so it will only be readable by its
@@ -37,6 +61,13 @@ public class LoopFun
        * @return the encrypted string by shifting each character by three character
        */
       public String encrypt(String word) {
-          return null;
-      }
+
+   String out = "";
+
+   for (char c : word.toCharArray()) {
+   out += Character.toString((char) (((c - 'a' + 3) % 26) + 'a'));
+}
+return out;
+}
+
 }
